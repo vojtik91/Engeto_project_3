@@ -1,0 +1,32 @@
+1.) Readme uloženo jako markdown
+2.) V podmínce if name ==__name__ se spouští pouze hlavní funkce main celého programu
+3.) Rozdělení funkce get_town data na dvě - 1. získává obecné informace, 2. - získává hlasy jednotlivých stran. Uplně nevím, co s tou větví try. Bez ní mi to prostě neběží, ošetřuji s ní pouze pokud někde v cyklu nehodí ValueError nebo IndexError
+4.) Funkce pro získávání dat mají nově jako parametry HTML kódy a ne URL, takže se request volá méně
+5.) Doplněny docstringy a typehinty
+
+Pozitiva:
+
+Program pracuje správně a splňuje zadání.
+
+Celý kód je napsán přehledně a strukturovaně.
+
+Použil jsi pokročilé koncepty, např. knihovnu pandas.
+
+Líbí se mi detail .replace("\xa0", "")
+
+Hezky použité vnořené cykly.
+Co by šlo vylepšit:
+
+1. README soubor je velmi podrobný, ale proč není uložený jako markdown? Tak by se ti hezky naformátovaný zobrazoval i v náhledu repozitáře.
+
+2. Podmínka if name == main je velmi přetížena. V této podmínce se ideálně mají spouštět pouze hlavní funkce programu. Žádné cykly ani zápis souborů tady nemá co dělat. To má být v samostatných funkcích.
+
+3. Funkce get_town_data je velmi komplikovaná. Správná funkce má dělat jednu věc. Pokus se to rozdělit na více jednoduchých funkcí. V této funkci je ještě try větev, která by měla obsahovat méně kódu. navíc bez větví else nebo finally trochu postrádá význam.
+
+4. Funkce get_html se v programu volá 3x. To hodně zatěžuje server. Ideální by bylo zavolat request.get jednou, výsledek si uložit do proměnné a s tou dále pracovat.
+
+5. Funkcím kompletně chybí docstringy a typehinty.
+
+Závěrem:
+
+Tento projekt se mi velmi líbí. Kód je napsán přehledně, strukturovaně. Trpí však i většími nedostatky, které mi brání uznat jej za splněný. Jedná se hlavně o přetíženou if name==main podmínku a celkovou dokumentaci skriptu. Dále se prosím podívej na zjednodušení některých funkcí. Jinak se ale opravdu jedná a velmi solidní projekt a já už se těším na jeho vylepšenou verzi.
